@@ -40,7 +40,7 @@
 										
 										while($array = mysqli_fetch_array($res))
 										{
-											echo '<td>'.$array['Codes'].'</td>'.
+											echo '<td>'.$array['Code'].'</td>'.
                                             '<td>'.$array['FullName'].'</td>'.
                                             '<td>'.$array['UserName'].'</td>'.
                                             '<td>'.$array['Branch'].'</td>'.
