@@ -4,8 +4,8 @@
 
 	$time = time();
 	$length = 10;
-	
-	$code = 'sfASPYJhDo';//substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);	
+
+	$code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);	
 	$sql = "SELECT * FROM clients WHERE Code='$code'";
 	$res = mysqli_query($conn, $sql);
 	while( mysqli_num_rows($res) != 0 )
