@@ -4,7 +4,17 @@
 
 	$time = time();
 	$length = 10;
-	$code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+	
+	$code = 'sfASPYJhDo';//substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);	
+	$sql = "SELECT * FROM clients WHERE Code='$code'";
+	$res = mysqli_query($conn, $sql);
+	while( mysqli_num_rows($res) != 0 )
+	{
+		$code = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+		$sql = "SELECT * FROM clients WHERE Code='$code'";
+		$res = mysqli_query($conn, $sql);
+	}
+	
 	$user = htmlspecialchars($_POST['n']);
 	$pass = htmlspecialchars($_POST['pass']);
 	$em = htmlspecialchars($_POST['em']);
