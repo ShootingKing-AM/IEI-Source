@@ -5,7 +5,7 @@
 		die("<h1>404 Error</h1><h2> Access Denied</h2><h3><a href='index.php'>Login/Signup</a></h3>");exit;
 	}
 	
-	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 5*60 ))
+	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 60*60 ))
 	{
 		header('Location: logout.php');
 	}
