@@ -62,6 +62,7 @@
                             <li><a href="#portfolio"><i class="fa fa-flask"></i> Portfolio</a></li>
                             <li><a href="#clients"><i class="fa fa-puzzle-piece"></i> Sponsors</a></li>
                             <li><a href="#about"><i class="fa fa-info"></i> About</a></li>
+                            <li><a href="#fac"><i class="fa fa-users"></i> Faculty</a></li>
                             <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
 							<li><a href="member/index.php"><i class="fa fa-sign-in"></i> Login</a></li>
                             </ul>
@@ -264,12 +265,12 @@
     </div>
     </section>
 <!-- About Section End -->
-<!--
-    <section id="clients">
+<!---->
+    <section id="fac">
     <div class="container">
     <div class="row">
 
-    <h1 class="title">Sponsors</h1><br /><br />
+    <h1 class="title">Faculty Team</h1><br /><br />
 <style>
 .dp-box .dp {
     border-radius: 50%;
@@ -298,17 +299,17 @@ img {
     <div class="wow fadeInDown">
 <div class="dp-box">
 <div class="col-sm-6 text-center">
-<img src="assets/img/03.jpg" class="dp" id="dp" alt="Display Picture" width="250" height="250"><h1>Prof.V.Srinivas</h1><h1><small>Chairman IE(I) Student Chapter</small></h1>
+<img src="assets/img/1.jpg" class="dp" id="dp" alt="Display Picture" width="250" height="250"><h1>Prof.V.Srinivas</h1><h1><small>Chairman IE(I) Student Chapter</small></h1>
 </div>
 <div class="col-sm-6 text-center">
-<img src="assets/img/2.htm" class="dp" id="dp" alt="Display Picture" width="200" height="200"><h1>R.Bhanu Pavan</h1><h1><small>President</small></h1>
+<img src="assets/img/2.jpg" class="dp" id="dp" alt="Display Picture" width="250" height="250"><h1>R.Bhanu Pavan</h1><h1><small>Faculty Advisor</small></h1>
 </div>
 </div>
     </div>
     </div>
     </div>
     </section>
--->
+<!--->
 <!-- Conatct Section -->
     <section id="contact">
     <div class="container text-center">
