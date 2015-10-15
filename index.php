@@ -325,13 +325,13 @@ img {
     <div class="controls">
     <input type="text" class="form-control" placeholder="Name" name="name">
     </div>
-<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>-->
     </div>
     <div class="form-group">
     <div class="controls">
     <input type="email" class="form-control email" placeholder="Email" name="email">
     </div>
-<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>-->
     </div>
 
     <div class="form-group">
@@ -339,7 +339,7 @@ img {
     <div class="controls">
     <textarea rows="7" class="form-control" placeholder="Message" name="message"></textarea>
     </div>
-<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>-->
     </div>
     <button type="submit" id="submit" name="submit" class="btn btn-lg btn-common">Send</button><div id="success" style="color:#34495e;"></div>
 
