@@ -1,3 +1,4 @@
+<?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); ?>
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -318,20 +319,19 @@ img {
 
     <h2 class="subtitle">We are here to help you at any time.</h2>
 
-<script src="assets/js/validatemsg.js" type="text/javascript"></script>
     <form  class="contact-form" id="contact" name="contact"  onsubmit="return validateForm();" method="post">
     <div class="col-md-6 wow fadeInLeft" data-wow-delay=".5s">
     <div class="form-group">
     <div class="controls">
     <input type="text" class="form-control" placeholder="Name" name="name">
     </div>
-<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>-->
     </div>
     <div class="form-group">
     <div class="controls">
     <input type="email" class="form-control email" placeholder="Email" name="email">
     </div>
-<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>-->
     </div>
 
     <div class="form-group">
@@ -339,7 +339,7 @@ img {
     <div class="controls">
     <textarea rows="7" class="form-control" placeholder="Message" name="message"></textarea>
     </div>
-<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>
+<!--<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>-->
     </div>
     <button type="submit" id="submit" name="submit" class="btn btn-lg btn-common">Send</button><div id="success" style="color:#34495e;"></div>
 
@@ -371,7 +371,7 @@ img {
 
     <div id="copyright">
     <div class="container">
-    <div class="col-md-10"><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">Rohith Vegesna ~ IEI Dev Team <i class="fa fa-heart"></i></a></p></div>
+    <div class="col-md-10"><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></div>
     <div class="col-md-2">
         <span class="to-top pull-right"><a href="#hero-area"><i class="fa fa-angle-up fa-2x"></i></a></span>
         </div>

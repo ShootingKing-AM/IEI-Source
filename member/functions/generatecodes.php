@@ -1,5 +1,4 @@
 <?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start();
-
 	session_start();
 	if( !isset($_SESSION['userName']) )
 	{
@@ -15,8 +14,7 @@
 		$_SESSION['time'] = time();
 	}
 	
-	include_once("../db.php"); 
-	
+	include_once("../db.php");
 	$sql = "CREATE TABLE IF NOT EXISTS membcodes ( ID INT NOT NULL AUTO_INCREMENT, Code TEXT, CreatorID TEXT, SoldToID TEXT, Time TEXT, PRIMARY KEY (ID) )";
 	$qury = mysqli_query($conn, $sql);
 	

@@ -18,11 +18,13 @@
 	$user = htmlspecialchars($_POST['n']);
 	$pass = htmlspecialchars($_POST['pass']);
 	$em = htmlspecialchars($_POST['em']);
+	$fn = htmlspecialchars($_POST['fn']);
+	$m = htmlspecialchars($_POST['m']);
 	
 	$sql = "CREATE TABLE IF NOT EXISTS clients ( ID INT NOT NULL AUTO_INCREMENT, Code TEXT, Email TEXT, FullName TEXT, UserName TEXT, Password TEXT, Mobile TEXT, Branch TEXT, Amnt TEXT, Joinfest TEXT, Report TEXT, Message TEXT, IsAdmin TEXT, Doe TEXT, PRIMARY KEY (ID) )";
 	$qury = mysqli_query($conn, $sql);
 	
-	$sql = "INSERT into clients (`Code`, `UserName`, `Password`, `Email`, `Doe`) VALUES ('$code', '$user', '".md5(md5($pass))."', '$em', '$time')";
+	$sql = "INSERT into clients (`Code`, `FullName`, `UserName`, `Password`, `Email`, `Mobile`, `Doe`) VALUES ('$code', '$fn', '$user', '".md5(md5($pass))."', '$em', '$m', '$time')";
 	$qury = mysqli_query($conn, $sql);
 
 		if(!$qury)
@@ -31,6 +33,6 @@
 		}
 		else
 		{
-			header('Location: index.php');
+			include "sms/signupsms.php";
 		}
 ?>

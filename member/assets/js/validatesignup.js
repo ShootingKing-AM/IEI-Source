@@ -25,6 +25,14 @@ function validateForm() {
         return false;
     }
 
+	var y = document.forms["signup"]["m"].value;
+    if(y == null || y == '' || (y.length < 10)) 
+	{
+		$('#merror').text("Mobile number must be filled out and must be a valid number.");
+		$('#merror').fadeIn(500);
+        return false;
+    }
+
 	var pass1 = document.getElementById("pass").value;
     var pass2 = document.getElementById("confirm-pass").value;
     if (pass1 != pass2 || pass1 == '' || pass2 == '' || (pass1.length < 6)) 

@@ -75,6 +75,17 @@
                         <p class="text-center">Let everyone know about your idea.</p>
                     </div>
                 </div>
+<script type="text/javascript"> 
+
+function stopRKey(evt) { 
+  var evt = (evt) ? evt : ((event) ? event : null); 
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+} 
+
+document.onkeypress = stopRKey; 
+
+</script>
                 <div class="col-md-12">
 					<form data-toggle="validator" action="blogset.php" method="post" role="form">
 					<div class="form-group">
@@ -83,7 +94,7 @@
 					</div>
 					<div class="form-group">
 					<label for="inputName" class="control-label">Matter</label>
-					<input type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required>
+					<textarea type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required></textarea>
 					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>
@@ -104,12 +115,12 @@
 					'<p class="text-center">'.$array['Matter'].'</p>';
 		if($_SESSION['userName'] == $array['UserName'])
 					{
-						echo '<div class="col-sm-4"><a href="functions/delete.php"><button type="button" class="btn btn-danger">Delete</button></a></div>';
+						echo '<div class="col-sm-4"><a href="functions/delete.php?id='.$array['ID'].'"><button type="button" class="btn btn-danger">Delete</button></a></div>';
 					}
 					echo	'</div></div></div>';}
 ?> 
                  <!-- /. ROW  -->
-				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. EXCLUSIVELY Design & Developed by <a href="http://ieiscgitam.in">ROHITH - Dev Team <i class="fa fa-heart"></i></a></p></footer>
+				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. EXCLUSIVELY Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
 				</div>
              <!-- /. PAGE INNER  -->
             </div>

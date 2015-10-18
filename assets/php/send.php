@@ -1,22 +1,18 @@
 <?php 
-	include_once("../../member/db.php");
+$name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+$subject = $_POST['subject'];
+
+$to = 'hello@gmail.com';
+$message = 'FROM: '.$name.' Email: '.$email.'Message: '.$message;
+$headers = 'From: youremail@domain.com' . "\r\n";
  
-$time = time();
-$name = htmlspecialchars($_POST['name']);
-$email = htmlspecialchars($_POST['email']);
-$message = htmlspecialchars($_POST['message']);
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // this line checks that we have a valid email address
+mail($to, $subject, $message, $headers); //This method sends the mail.
+echo "Your email was sent!"; // success message
+}else{
+echo "Invalid Email, please provide an correct email.";
+}
 
-	$sql = "CREATE TABLE IF NOT EXISTS messages ( ID INT NOT NULL AUTO_INCREMENT, Name TEXT, Email TEXT, Message TEXT, Doe TEXT, PRIMARY KEY (ID) )";
-	$qury = mysqli_query($conn, $sql);
-	
-	$sql = "INSERT into messages (`Name`, `Email`, `Message`, `Doe`) VALUES ('$name', '$email', '$message', '$time')";
-	$qury = mysqli_query($conn, $sql);
-
-		if(!$qury)
-		{
-			echo "Failed ".mysqli_error($db);
-		}
-		else
-		{
-		}
 ?>

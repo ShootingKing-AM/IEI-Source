@@ -5,8 +5,8 @@
                 <div class="col-md-12">
                     <div class="jumbotron">
                         <div class="text-center"><h1><font class="text-danger">T</font><font class="text-warning">e</font><font class="text-info">c</font><font class="text-success">h</font> <font class="text-primary">R</font><font class="text-danger">e</font><font class="text-warning">n</font><font class="text-info">d</font><font class="text-success">e</font><font class="text-primary">z</font><font class="text-danger">v</font><font class="text-warning">o</font><font class="text-info">u</font><font class="text-success">s</font> ~ <kbd><?php echo Date('Y');?></kbd></h1></div>
-						<div class="text-center"><h3>fuck you...</h3></div>
-                        <p class="text-center">This is admin pannel you are the king.</p>
+						<div class="text-center"><h3>Be Alert!!!!!!!!!!!</h3></div>
+                        <p class="text-center">This is the ADMIN PANNEL you will be blamed for any mistake commited by you.Please read the given instructions before you do anything.</p>
                     </div>
                 </div>
 			<div class="row">
@@ -59,6 +59,24 @@
                     <!--End Advanced Tables -->
                 </div>
             </div>
+
+			<?php
+						require 'db.php';
+						$sql = "SELECT COUNT(*) FROM membcodes WHERE SoldToID IS NULL AND CreatorID='".$_SESSION['userID']."'";
+						$res = mysqli_query( $db, $sql );
+						$array = mysqli_fetch_array($res);
+
+						if(intval($array[0])< 1)
+							{
+								echo'<div class="col-md-12">
+										<div class="jumbotron">
+											<div class="text-center"><h2>Generate Tickets</h2></div>
+											<p class="text-center">Press this button only if you want to sell FEST tikets. You will be responsible for any scam caused by you after generating tickets.</p>
+											<p class="text-center">
+												<a href="functions/generatecodes.php" class="btn btn-danger btn-lg" role="button">Generate Tickets</a>
+											</p>
+										</div>
+									</div>';}?>
 			
 			<div class="row">
                 <div class="col-md-12">
@@ -73,20 +91,20 @@
                                     <thead>
                                         <tr>
                                             <th>Ticket</th>
-                                            <th>Full Name</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-										<?php/*
+										<?php
 										require 'db.php';
-										$sql = 'SELECT * FROM ticket WHERE UserName='$_SESSION['userName'];
+										$sql = "SELECT * FROM membcodes WHERE SoldToID IS NULL AND CreatorID='".$_SESSION['userID']."'";
 										$res = mysqli_query( $db, $sql );
 										
 										while($array = mysqli_fetch_array($res))
 										{
-											echo '<td>'.$array['Ticket'].'</td>'.
-                                            '<td>'.$array['FullName'].'</td>'.
-											'</tr>';}*/?>
+											echo '<td>'.$array['Code'].'</td>'.
+                                            '<td><div class="text-center"><a href="functions/sold.php?sold='.$array['ID'].'"><button>Sold</button></a></div></td>'.
+											'</tr>';}?>
                                     </tbody>
                                 </table>
                             </div>
@@ -148,7 +166,7 @@
 				</div>
             </div>
                 <!-- /. ROW  -->
-				<footer><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">Rohith Vegesna ~ IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
+				<footer><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
