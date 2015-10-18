@@ -16,8 +16,9 @@
 
 
 	require '../db.php';
-
-		$sql = "DELETE FROM `blog` WHERE UserName='".$_SESSION['userName']."'";
+		
+		$del =  mysqli_real_escape_string( $conn, $_GET['id']);
+		$sql = "DELETE FROM `blog` WHERE ID='$del'";
 		mysqli_query($db, $sql);
 
 	header('Location: ../blog.php');

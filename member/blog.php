@@ -104,7 +104,7 @@
 					'<p class="text-center">'.$array['Matter'].'</p>';
 		if($_SESSION['userName'] == $array['UserName'])
 					{
-						echo '<div class="col-sm-4"><a href="functions/delete.php"><button type="button" class="btn btn-danger">Delete</button></a></div>';
+						echo '<div class="col-sm-4"><a href="functions/delete.php?id='.$array['ID'].'"><button type="button" class="btn btn-danger">Delete</button></a></div>';
 					}
 					echo	'</div></div></div>';}
 ?> 
