@@ -109,7 +109,7 @@
 					echo	'</div></div></div>';}
 ?> 
                  <!-- /. ROW  -->
-				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. EXCLUSIVELY Design & Developed by <a href="http://ieiscgitam.in">ROHITH - Dev Team <i class="fa fa-heart"></i></a></p></footer>
+				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. EXCLUSIVELY Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
 				</div>
              <!-- /. PAGE INNER  -->
             </div>
