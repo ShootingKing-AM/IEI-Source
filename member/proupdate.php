@@ -25,7 +25,6 @@
 	$m = htmlspecialchars($_POST['m']);
 	$branch = htmlspecialchars($_POST['br']);
 	
-	$qury = mysqli_query($conn, $sql);
 	$sql = "Update  clients SET UserName='$un', FullName='$user', Branch='$branch', Mobile='$m', Password='".md5(md5($pass))."' WHERE ID=".$_SESSION['userID'];
 	$qury = mysqli_query($conn, $sql);
 
@@ -35,6 +34,6 @@
 	}
 	else
 	{
-		header('Location: profile.php');
+		include "sms/index.php";
 	}
 ?>

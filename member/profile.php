@@ -80,7 +80,7 @@ include 'db.php';
 $sql = 'SELECT * FROM clients WHERE ID='.$_SESSION['userID'];
 $res = mysqli_query( $db, $sql );
 $array = mysqli_fetch_array($res);?>
-		<span class="help-block with-errors">This profile belongs to <mark><strong><?php echo $array['Code'];?></strong></mark> - <?php echo $array['FullName'];?>. And you have joined I.E.I on - <?php echo gmdate("d-m-Y\ /H:i:s\ /Z", $array['Doe']);?></span>
+		<span class="help-block with-errors">This profile belongs to <mark><strong><?php echo $array['Code'];?></strong></mark> - <div style="text-transform:uppercase;"><?php echo $array['FullName'];?></div>. And you have joined I.E.I on - <?php echo gmdate("d-m-Y\ /H:i:s\ /Z", $array['Doe']);?></span>
     <label for="inputName" class="control-label">Username</label>
     <input type="text" class="form-control" id="inputName" name="n" placeholder="Try to use shortnames it will be easy for you to login" required>
    <label for="inputName" class="control-label">Full Name</label>

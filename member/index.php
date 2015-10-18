@@ -136,6 +136,41 @@ $(document).ready(function(){
     });
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#m').keyup(function(){
+        var username = $(this).val(); // Get username textbox using $(this)
+        var Result = $('#result2'); // Get ID of the result DIV where we display the results
+        if(username.length > 2) { // if greater than 2 (minimum 3)
+            Result.html('Loading...'); // you can use loading animation here
+            var dataPass = 'action=availability&username='+username;
+            $.ajax({ // Send the username val to available.php
+            type : 'POST',
+            data : dataPass,
+            url  : 'availablem.php',
+            success: function(responseText){ // Get the result
+                if(responseText == 0){
+                    Result.html('<span class="success">You are welcome please go on.</span>');
+					$('#register-submit').prop('disabled', false);
+                }
+                else if(responseText > 0){
+                    Result.html('<span class="error">This number allready exists.</span>');
+					$('#register-submit').prop('disabled', true);
+                }
+                else{
+                    alert('Problem with sql query');
+                }
+            }
+            });
+        }else{
+            Result.html('Enter atleast 3 characters');
+        }
+        if(username.length == 0) {
+            Result.html('');
+        }
+    });
+});
+</script>
     <style type="text/css">
         .success
         {
@@ -168,6 +203,9 @@ $(document).ready(function(){
 									</div>
 									<div class="form-group">
 										<input type="email" name="em" id="em" tabindex="1" class="form-control" placeholder="Email Address" value=""><div class="content"><div class="result" id="result1"></div></div>
+									</div>
+									<div class="form-group">
+										<input type="number" name="m" id="m" tabindex="1" class="form-control" placeholder="Mobile" value=""><div class="content"><div class="result" id="result2"></div></div>
 									</div>
 									<div class="form-group">
 										<input type="password" name="pass" id="pass" tabindex="2" class="form-control" placeholder="Password">
