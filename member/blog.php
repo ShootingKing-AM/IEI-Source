@@ -75,6 +75,17 @@
                         <p class="text-center">Let everyone know about your idea.</p>
                     </div>
                 </div>
+<script type="text/javascript"> 
+
+function stopRKey(evt) { 
+  var evt = (evt) ? evt : ((event) ? event : null); 
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+} 
+
+document.onkeypress = stopRKey; 
+
+</script>
                 <div class="col-md-12">
 					<form data-toggle="validator" action="blogset.php" method="post" role="form">
 					<div class="form-group">
@@ -83,7 +94,7 @@
 					</div>
 					<div class="form-group">
 					<label for="inputName" class="control-label">Matter</label>
-					<input type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required>
+					<textarea type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required></textarea>
 					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>
