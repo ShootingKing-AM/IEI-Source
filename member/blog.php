@@ -95,7 +95,7 @@ document.onkeypress = stopRKey;
                 </div>
 <?php
 	include_once 'db.php';
-	$sql = 'SELECT * FROM blog';
+	$sql = 'SELECT * FROM blog ORDER BY Doe desc';
 	$res = mysqli_query( $db, $sql );
 	
 	if( !is_bool($res) )
@@ -115,7 +115,7 @@ document.onkeypress = stopRKey;
 			if($_SESSION['userName'] == $array['UserName'])
 			{
 				echo '<div class="col-sm-4">'.
-						'<a href="functions/delete.php?id='.$array['ID'].'"><button type="button" class="btn btn-danger">Delete</button></a>'.
+						'<a href="functions/delete.php?ID='.$array['ID'].'"><button type="button" class="btn btn-danger">Delete</button></a>'.
 					 '</div>';
 			}
 			echo '</div></div></div>';

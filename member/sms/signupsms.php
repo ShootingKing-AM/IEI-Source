@@ -7,8 +7,8 @@ include('funcs.php');
 	$ser="http://site24.way2sms.com/";
 	$ckfile = tempnam ("/tmp", "CURLCOOKIE");
 	$login=$ser."Login1.action";
-	$uid=9640230600;
-	$pwd=krishna96763;
+	$uid    = ******;
+	$pwd    = ******;
 
 	$to=$m;
 	$msg="We are from IEI Thank You for joining us.";
