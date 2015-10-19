@@ -7,7 +7,7 @@
 	
 	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 60*60 ))
 	{
-		header('Location: logout.php');
+		header('Location: functions/logout.php');
 	}
 	else
 	{
@@ -56,7 +56,7 @@
                         <a class="active-menu" href="id.php"><i class="fa fa-bar-chart-o"></i> I.D Card</a>
                     </li>
                     <li>
-                        <a href="logout.php"><i class="fa fa-qrcode"></i> Logout</a>
+                        <a href="functions/logout.php"><i class="fa fa-qrcode"></i> Logout</a>
                     </li>
                     
                 </ul>
