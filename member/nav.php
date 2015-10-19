@@ -54,7 +54,6 @@
 									'</a>'.
 								 '</li><li class="divider"></li>';
 						}
-						mysqli_close($db);
 					?>
 					<li><a href="functions/delmsg.php"><button type="button" class="btn btn-warning">Delete All</button></a></li>
                     </ul>

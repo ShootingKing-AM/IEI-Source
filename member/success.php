@@ -7,59 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <title>IEI~Client</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/box.css">	
-<!--Icon Fonts-->
-<link rel="stylesheet" media="screen" href="assets/css/font-awesome.css" />
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<link href="assets/css/animate.css" rel="stylesheet">
-<script src="assets/js/validatesignup.js" type="text/javascript"></script>
-</head>
-<body style="background: Url(assets/img/gear.gif);color: #fff;max-width: 100%;height: 100%;">
-<style>
-	body {
-		padding-top: 90px;
-	}
-	
-	ul.dropdown-lr {
-	  width: 300px;
-	}
-
-	@media (max-width: 768px) {
-		.dropdown-lr h3 {
-			color: #eee;
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/box.css">	
+	<link rel="stylesheet" media="screen" href="assets/css/font-awesome.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link href="assets/css/animate.css" rel="stylesheet">
+	<script src="assets/js/validatesignup.js" type="text/javascript"></script>
+	</head>
+	<body style="background: Url(assets/img/gear.gif);color: #fff;max-width: 100%;height: 100%;">
+	<style>
+		body {
+			padding-top: 90px;
 		}
-		.dropdown-lr label {
-			color: #eee;
+		
+		ul.dropdown-lr {
+		  width: 300px;
 		}
-	}
-	.success
-	{
-		color: green;
-	}
-	.error
-	{
-		color: red;
-	}
-	.content
-	{
-		width:900px;
-		margin:0 auto;
-	}
-	#username
-	{
-		width:500px;
-		border:solid 1px #000;
-		padding:10px;
-		font-size:14px;
-	}
-</style>
+
+		@media (max-width: 768px) {
+			.dropdown-lr h3 {
+				color: #eee;
+			}
+			.dropdown-lr label {
+				color: #eee;
+			}
+		}
+		.success
+		{
+			color: green;
+		}
+		.error
+		{
+			color: red;
+		}
+		.content
+		{
+			width:900px;
+			margin:0 auto;
+		}
+		#username
+		{
+			width:500px;
+			border:solid 1px #000;
+			padding:10px;
+			font-size:14px;
+		}
+	</style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class="container-fluid">
 			<div class="navbar-header">
