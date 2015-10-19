@@ -87,7 +87,7 @@ document.onkeypress = stopRKey;
 
 </script>
                 <div class="col-md-12">
-					<form data-toggle="validator" action="blogset.php" method="post" role="form">
+					<form data-toggle="validator" action="functions/blogset.php" method="post" role="form">
 					<div class="form-group">
 					<label for="inputName" class="control-label">Heading</label>
 					<input type="text" class="form-control" id="inputName" name="head" placeholder="Heading" required>
