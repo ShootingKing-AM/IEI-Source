@@ -7,7 +7,7 @@
 	
 	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 60*60 ))
 	{
-		header('Location: logout.php');
+		header('Location: functions/logout.php');
 	}
 	else
 	{
@@ -23,22 +23,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <title>IEI~Client</title>
-    <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
     <div id="wrapper">
         <?php include "nav.php";?>
-        <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -56,7 +50,7 @@
                         <a class="active-menu" href="id.php"><i class="fa fa-bar-chart-o"></i> I.D Card</a>
                     </li>
                     <li>
-                        <a href="logout.php"><i class="fa fa-qrcode"></i> Logout</a>
+                        <a href="functions/logout.php"><i class="fa fa-qrcode"></i> Logout</a>
                     </li>
                     
                 </ul>
@@ -64,7 +58,6 @@
             </div>
 
         </nav>
-        <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
@@ -72,29 +65,16 @@
                         <h1 class="page-header">
                             ID card <small>or Membership card.</small>
                         </h1>
-
-				<iframe src="id/index.php" style="width: 100%;height: 850px;border-style: solid;border-width: 5px;"></iframe>
-										
+						<iframe src="id/index.php" style="width: 100%;height: 850px;border-style: solid;border-width: 5px;"></iframe>	
                     </div>
                 </div> 
-                 <!-- /. ROW  -->
 				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
 				</div>
-             <!-- /. PAGE INNER  -->
             </div>
-         <!-- /. PAGE WRAPPER  -->
         </div>
-     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
-    
-   
+    <script src="assets/js/custom-scripts.js"></script>   
 </body>
 </html>

@@ -7,7 +7,7 @@
 	
 	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 60*60 ))
 	{
-		header('Location: ../logout.php');
+		header('Location: ../functions/logout.php');
 	}
 	else
 	{
@@ -44,43 +44,26 @@
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
     <body oncontextmenu="return false;">
-        <!-- Container -->
         <div id="container">
-        
-            <!-- Header -->
-            <!--<div class="header">
-                <div id="logo">
-                    <h2><a href="#welcome">Institue Of Engineers (INDIA)</a></h2>
-                </div>
-            </div>-->
-            <!-- /Header -->
-
-            <!-- Content -->
             <div id="content">
 
-                <!-- Navigation -->
                 <div class="navigation">
                     <ul class="tabs">
                         <li><a href="#about" class="tab-about">I.D</a></li>
                     </ul>
                 </div>
-                <!-- /Navigation --> 
-               
-                <!-- About Section -->
                 <div id="about">
 
-                    <!-- About Header -->
                     <div class="about-header">
                         <h3>Institute Of Engineers (INDIA)</h3>
                         <div class="separator"></div>
                     </div>
-                    <!-- /About Header -->
-<?php
-include '../db.php';
-$sql = 'SELECT * FROM clients WHERE ID='.$_SESSION['userID'];
-$res = mysqli_query( $db, $sql );
-$array = mysqli_fetch_array($res);?>
-                    <!-- Resume -->
+				<?php
+					include '../db.php';
+					$sql = 'SELECT * FROM clients WHERE ID='.$_SESSION['userID'];
+					$res = mysqli_query( $db, $sql );
+					$array = mysqli_fetch_array($res);
+				?>
                     <div class="resume-wrapper">
                         <div class="resume">
                             <ul class="personal-info">
@@ -96,24 +79,17 @@ $array = mysqli_fetch_array($res);?>
                         </div>
                         <div class="separator"></div>
                     </div>
-                    <!-- /Resume -->
 
                 </div>
-                <!-- /About Section --> 
                                         
             </div>
-            <!-- /Content -->
-            
-            <!-- Footer -->
             <div class="footer">
 <button onclick="window.print();">Print</button>
 
                 <div class="copyright"><h5>Copyright © <?php echo Date('Y');?> Team - I.E.I</h5></div>
             </div>
-            <!-- /Footer --> 
             
         </div>
-        <!-- /Container -->
 
     </body>
     </html>

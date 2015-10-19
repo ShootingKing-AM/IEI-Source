@@ -13,36 +13,51 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-envelope fa-fw"></i>
-						<?php
-						require 'db.php';
-						$sql = 'SELECT COUNT(Message) FROM clients WHERE ID='.$_SESSION['userID'];
+					<?php
+						include_once 'db.php';
+						$sql = 'SELECT Message FROM clients WHERE ID='.$_SESSION['userID'];
 						$res = mysqli_query( $db, $sql );
-						$array = mysqli_fetch_array($res);
-
-						if(intval($array[0])> 0)
+						$num = 0;
+						if( !is_bool($res) )
+						{
+							$array = mysqli_fetch_array($res);
+							if( $array['Message'] != NULL )
 							{
-								echo'<span class="badge">'.$array[0].'</span>';
-							}?>
+								$num = mysqli_num_rows($res);
+								if( $num > 0 )
+								{
+									echo "<span class=\"badge\">$num</span>";
+								}
+							}
+						}
+					?>
 						<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
-                        <?php
-						require 'db.php';
-						$sql = 'SELECT Message FROM clients WHERE ID='.$_SESSION['userID'];
-						$res = mysqli_query( $db, $sql );
-						
-						while($array = mysqli_fetch_array($res))
+                    <?php					
+						if( $num > 0 )
 						{
-							echo '<li>
-                            <a href="#">
-                                <div>'.$array['Message'].'</div>
-                            </a>
-                        </li><li class="divider"></li>';}?>
-					<li><a href="delmsg.php"><button type="button" class="btn btn-link">Delete All</button></a></li>
+							while($array = mysqli_fetch_array($res))
+							{
+								echo '<li>'.
+										'<a href="#">'.
+												'<div>'.$array['Message'].'</div>'.
+										'</a>'.
+									 '</li><li class="divider"></li>';
+							}
+						}
+						else
+						{
+							echo '<li>'.
+									'<a href="#">'.
+											'<div>No Messages</div>'.
+									'</a>'.
+								 '</li><li class="divider"></li>';
+						}
+					?>
+					<li><a href="functions/delmsg.php"><button type="button" class="btn btn-warning">Delete All</button></a></li>
                     </ul>
-                    <!-- /.dropdown-messages -->
                 </li>
-                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -51,11 +66,9 @@
                         <li><a href="profile.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="functions/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
             </ul>
         </nav>

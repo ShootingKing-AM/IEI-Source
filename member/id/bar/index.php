@@ -7,7 +7,7 @@
 	
 	if( isset($_SESSION['userName']) && ( (time() - $_SESSION['time']) >= 60*60 ))
 	{
-		header('Location: ../../logout.php');
+		header('Location: ../../functions/logout.php');
 	}
 	else
 	{
