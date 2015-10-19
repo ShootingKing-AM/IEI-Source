@@ -7,39 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <title>IEI~Client</title>
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/box.css">	
-<!--Icon Fonts-->
 <link rel="stylesheet" media="screen" href="assets/css/font-awesome.css" />
-<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link href="assets/css/animate.css" rel="stylesheet">
 </head>
 <body style="background: Url(assets/img/gear.gif);color: #fff;max-width: 100%;height: 100%;">
 <style>
-/* Fixed navbar */
-body {
-    padding-top: 90px;
-}
-/* General sizing */
-ul.dropdown-lr {
-  width: 300px;
-}
-
-/* mobile fix */
-@media (max-width: 768px) {
-	.dropdown-lr h3 {
-		color: #eee;
+	body 
+	{
+		padding-top: 90px;
 	}
-	.dropdown-lr label {
-		color: #eee;
+	
+	ul.dropdown-lr {
+	  width: 300px;
 	}
-}
 
+	@media (max-width: 768px) {
+		.dropdown-lr h3 {
+			color: #eee;
+		}
+		.dropdown-lr label {
+			color: #eee;
+		}
+	}
 </style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class="container-fluid">
@@ -144,13 +138,13 @@ ul.dropdown-lr {
 <?php 
 if( isset($_GET['k']) )
 {
-	require_once 'db.php';
+	include_once 'db.php';
 	
 	$sql = "SELECT * FROM clients WHERE Keye='".mysqli_real_escape_string($db, $_GET['k'])."'";
 	$res = mysqli_query($db, $sql);
 	if( is_bool($res) || (mysqli_num_rows($res)<1) )
 	{
-		echo "Noob Spotted...<br/><h1>404 Error</h1><br/>";
+		echo "<h1>404 Error</h1><br/>";
 		exit;
 	}
 	
@@ -158,7 +152,7 @@ if( isset($_GET['k']) )
 	$_SESSION['ResetPassAccountDetails'] = $Details;
 	
 ?>
-<div class="form-info">
+				<div class="form-info">
 					<form role="form" name="forgot1" action="functions/resetPass.php" method="post">
 						<div class="form-group">
 						<label for="password">Password:</label>
@@ -166,7 +160,7 @@ if( isset($_GET['k']) )
 					  </div>
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
-</div>
+				</div>
 				</div>
 		</div>
 <?php } else { ?>
