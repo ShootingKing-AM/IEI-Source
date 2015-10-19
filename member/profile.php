@@ -73,7 +73,7 @@
                             Profile <small>(can be edited).</small>
                         </h1>
 <div class="row">
-<form data-toggle="validator" action="proupdate.php" method="post" role="form">
+<form data-toggle="validator" action="functions/proupdate.php" method="post" role="form">
   <div class="form-group">
 <?php
 include 'db.php';

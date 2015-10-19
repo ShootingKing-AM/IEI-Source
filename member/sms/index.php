@@ -77,5 +77,4 @@
 		echo "</div>";
 		flush();
 	}
-	header('Location: profile.php');
-?>
+	header('Location: ../profile.php');

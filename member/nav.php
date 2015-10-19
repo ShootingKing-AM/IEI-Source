@@ -38,7 +38,7 @@
                                 <div>'.$array['Message'].'</div>
                             </a>
                         </li><li class="divider"></li>';}?>
-					<li><a href="delmsg.php"><button type="button" class="btn btn-link">Delete All</button></a></li>
+					<li><a href="functions/delmsg.php"><button type="button" class="btn btn-link">Delete All</button></a></li>
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
