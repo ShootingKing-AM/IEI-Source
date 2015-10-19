@@ -181,7 +181,7 @@ ul.dropdown-lr {
         }
 </style>
 
-								<form id="signup" name="signup" action="signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
+								<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
 									<div class="form-group">
 										<input type="text" name="n" id="n" tabindex="1" class="form-control" placeholder="Username" value=""><div class="content"><div class="result" id="result"></div></div>
 									</div>

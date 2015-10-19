@@ -83,5 +83,5 @@ if($uid && $pwd)
 	flush();
 
 }
-header('Location: success.php');
+header('Location: ../success.php');
 ?>

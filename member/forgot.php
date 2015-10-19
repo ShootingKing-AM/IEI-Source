@@ -64,7 +64,7 @@ ul.dropdown-lr {
                             <div class="col-lg-12">
 								<script src="assets/js/validatesignup.js" type="text/javascript"></script>
                                 <div class="text-center"><h3><b>Register</b></h3></div>
-								<form id="signup" name="signup" action="signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
+								<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
 									<div class="form-group">
 										<input type="text" name="n" id="n" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
