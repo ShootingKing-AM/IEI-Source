@@ -19,6 +19,8 @@
 		}
 		
         $arry  = mysqli_fetch_array(mysqli_query($conn,$query));
+		mysqli_close($conn);
+		
         echo $arry['COUNT(*)'];
     }
 ?>
