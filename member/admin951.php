@@ -120,7 +120,7 @@
 						<div class="text-center"><h2>DataBase Editor</h2></div>
 						<p class="text-center">Please donot touch this if you don't have an Idea of editing DataBase. Call to 9640230600 in case of error or details.</p>
 						<p class="text-center">
-								<form data-toggle="validator" action="updateclient.php" method="post" role="form">
+								<form data-toggle="validator" action="functions/updateclient.php" method="post" role="form">
 								  <div class="form-group">
 									<label for="inputName" class="control-label">Code of Candidate</label>
 									<input type="text" class="form-control" id="inputName" name="code" placeholder="Code" required>
