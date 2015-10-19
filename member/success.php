@@ -19,28 +19,46 @@
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link href="assets/css/animate.css" rel="stylesheet">
+<script src="assets/js/validatesignup.js" type="text/javascript"></script>
 </head>
 <body style="background: Url(assets/img/gear.gif);color: #fff;max-width: 100%;height: 100%;">
 <style>
-/* Fixed navbar */
-body {
-    padding-top: 90px;
-}
-/* General sizing */
-ul.dropdown-lr {
-  width: 300px;
-}
-
-/* mobile fix */
-@media (max-width: 768px) {
-	.dropdown-lr h3 {
-		color: #eee;
+	body {
+		padding-top: 90px;
 	}
-	.dropdown-lr label {
-		color: #eee;
+	
+	ul.dropdown-lr {
+	  width: 300px;
 	}
-}
 
+	@media (max-width: 768px) {
+		.dropdown-lr h3 {
+			color: #eee;
+		}
+		.dropdown-lr label {
+			color: #eee;
+		}
+	}
+	.success
+	{
+		color: green;
+	}
+	.error
+	{
+		color: red;
+	}
+	.content
+	{
+		width:900px;
+		margin:0 auto;
+	}
+	#username
+	{
+		width:500px;
+		border:solid 1px #000;
+		padding:10px;
+		font-size:14px;
+	}
 </style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     	<div class="container-fluid">
@@ -59,137 +77,6 @@ ul.dropdown-lr {
 					<li><a href="../index.php#about">About</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
-                            <div class="col-lg-12">
-								<script src="assets/js/validatesignup.js" type="text/javascript"></script>
-                                <div class="text-center"><h3><b>Register</b></h3></div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#n').keyup(function(){
-        var username = $(this).val(); // Get username textbox using $(this)
-        var Result = $('#result'); // Get ID of the result DIV where we display the results
-        if(username.length > 2) { // if greater than 2 (minimum 3)
-            Result.html('Loading...'); // you can use loading animation here
-            var dataPass = 'action=availability&username='+username;
-            $.ajax({ // Send the username val to available.php
-            type : 'POST',
-            data : dataPass,
-            url  : 'available.php',
-            success: function(responseText){ // Get the result
-                if(responseText == 0){
-                    Result.html('<span class="success">Available</span>');
-					$('#register-submit').prop('disabled', false);
-                }
-                else if(responseText > 0){
-                    Result.html('<span class="error">Taken</span>');
-					$('#register-submit').prop('disabled', true);
-                }
-                else{
-                    alert('Problem with sql query');
-                }
-            }
-            });
-        }else{
-            Result.html('Enter atleast 3 characters');
-        }
-        if(username.length == 0) {
-            Result.html('');
-        }
-    });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#em').keyup(function(){
-        var username = $(this).val(); // Get username textbox using $(this)
-        var Result = $('#result1'); // Get ID of the result DIV where we display the results
-        if(username.length > 2) { // if greater than 2 (minimum 3)
-            Result.html('Loading...'); // you can use loading animation here
-            var dataPass = 'action=availability&username='+username;
-            $.ajax({ // Send the username val to available.php
-            type : 'POST',
-            data : dataPass,
-            url  : 'availableem.php',
-            success: function(responseText){ // Get the result
-                if(responseText == 0){
-                    Result.html('<span class="success">You are welcome please go on.</span>');
-					$('#register-submit').prop('disabled', false);
-                }
-                else if(responseText > 0){
-                    Result.html('<span class="error">This email allready exists.</span>');
-					$('#register-submit').prop('disabled', true);
-                }
-                else{
-                    alert('Problem with sql query');
-                }
-            }
-            });
-        }else{
-            Result.html('Enter atleast 3 characters');
-        }
-        if(username.length == 0) {
-            Result.html('');
-        }
-    });
-});
-</script>
-    <style type="text/css">
-        .success
-        {
-            color: green;
-        }
-        .error
-        {
-            color: red;
-        }
-        .content
-        {
-            width:900px;
-            margin:0 auto;
-        }
-        #username
-        {
-            width:500px;
-            border:solid 1px #000;
-            padding:10px;
-            font-size:14px;
-        }
-</style>
-
-								<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
-									<div class="form-group">
-										<input type="text" name="n" id="n" tabindex="1" class="form-control" placeholder="Username" value=""><div class="content"><div class="result" id="result"></div></div>
-									</div>
-									<div class="form-group">
-										<input type="text" name="fn" id="fn" tabindex="1" class="form-control" placeholder="Full Name" value="">
-									</div>
-									<div class="form-group">
-										<input type="email" name="em" id="em" tabindex="1" class="form-control" placeholder="Email Address" value=""><div class="content"><div class="result" id="result1"></div></div>
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass" id="pass" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<input type="password" name="confirm-pass" id="confirm-pass" tabindex="2" class="form-control" placeholder="Confirm Password">
-									</div>
-									<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-xs-6 col-xs-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
-											</div>
-										</div>
-									</div>
-                                    <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
-								</form>
-                            </div>
-                        </ul>
-                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
