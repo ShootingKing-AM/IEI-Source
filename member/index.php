@@ -67,109 +67,96 @@ ul.dropdown-lr {
                                 <div class="text-center"><h3><b>Register</b></h3></div>
 
 <script type="text/javascript">
-$(document).ready(function(){
-    $('#n').keyup(function(){
-        var username = $(this).val(); // Get username textbox using $(this)
-        var Result = $('#result'); // Get ID of the result DIV where we display the results
-        if(username.length > 2) { // if greater than 2 (minimum 3)
-            Result.html('Loading...'); // you can use loading animation here
-            var dataPass = 'action=availability&username='+username;
-            $.ajax({ // Send the username val to available.php
-            type : 'POST',
-            data : dataPass,
-            url  : 'available.php',
-            success: function(responseText){ // Get the result
-                if(responseText == 0){
-                    Result.html('<span class="success">Available</span>');
-					$('#register-submit').prop('disabled', false);
-                }
-                else if(responseText > 0){
-                    Result.html('<span class="error">Taken</span>');
-					$('#register-submit').prop('disabled', true);
-                }
-                else{
-                    alert('Problem with sql query');
-                }
-            }
-            });
-        }else{
-            Result.html('Enter atleast 3 characters');
-        }
-        if(username.length == 0) {
-            Result.html('');
-        }
-    });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#em').keyup(function(){
-        var username = $(this).val(); // Get username textbox using $(this)
-        var Result = $('#result1'); // Get ID of the result DIV where we display the results
-        if(username.length > 2) { // if greater than 2 (minimum 3)
-            Result.html('Loading...'); // you can use loading animation here
-            var dataPass = 'action=availability&username='+username;
-            $.ajax({ // Send the username val to available.php
-            type : 'POST',
-            data : dataPass,
-            url  : 'availableem.php',
-            success: function(responseText){ // Get the result
-                if(responseText == 0){
-                    Result.html('<span class="success">You are welcome please go on.</span>');
-					$('#register-submit').prop('disabled', false);
-                }
-                else if(responseText > 0){
-                    Result.html('<span class="error">This email allready exists.</span>');
-					$('#register-submit').prop('disabled', true);
-                }
-                else{
-                    alert('Problem with sql query');
-                }
-            }
-            });
-        }else{
-            Result.html('Enter atleast 3 characters');
-        }
-        if(username.length == 0) {
-            Result.html('');
-        }
-    });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#m').keyup(function(){
-        var username = $(this).val(); // Get username textbox using $(this)
-        var Result = $('#result2'); // Get ID of the result DIV where we display the results
-        if(username.length > 2) { // if greater than 2 (minimum 3)
-            Result.html('Loading...'); // you can use loading animation here
-            var dataPass = 'action=availability&username='+username;
-            $.ajax({ // Send the username val to available.php
-            type : 'POST',
-            data : dataPass,
-            url  : 'availablem.php',
-            success: function(responseText){ // Get the result
-                if(responseText == 0){
-                    Result.html('<span class="success">You are welcome please go on.</span>');
-					$('#register-submit').prop('disabled', false);
-                }
-                else if(responseText > 0){
-                    Result.html('<span class="error">This number allready exists.</span>');
-					$('#register-submit').prop('disabled', true);
-                }
-                else{
-                    alert('Problem with sql query');
-                }
-            }
-            });
-        }else{
-            Result.html('Enter atleast 3 characters');
-        }
-        if(username.length == 0) {
-            Result.html('');
-        }
-    });
-});
+	$(document).ready(function(){
+		$('#n').keyup(function(){
+			var username = $(this).val();
+			var Result = $('#result');
+			if(username.length > 2) 
+			{
+				Result.html('Loading...');
+				var dataPass = 'action=availability&username='+username;
+				
+				$.ajax({
+					type : 'POST',
+					data : dataPass,
+					url  : 'functions/available.php',
+					success: function(responseText){
+						if(responseText == 0){
+							Result.html('<span class="success">Available</span>');
+							$('#register-submit').prop('disabled', false);
+						}
+						else if(responseText > 0){
+							Result.html('<span class="error">This username is already taken.</span>');
+							$('#register-submit').prop('disabled', true);
+						}
+					}
+				});
+			}
+			else
+			{
+				Result.html('');
+			}
+		});
+		
+		$('#em').keyup(function(){
+			var email = $(this).val();
+			var Result = $('#result1');
+			if(email.length > 2) 
+			{
+				Result.html('Loading...');
+				var dataPass = 'action=availability&email='+email;
+				$.ajax({
+					type : 'POST',
+					data : dataPass,
+					url  : 'functions/available.php',
+					success: function(responseText){
+						if(responseText == 0){
+							Result.html('<span class="success">You are welcome please go on.</span>');
+							$('#register-submit').prop('disabled', false);
+						}
+						else if(responseText > 0){
+							Result.html('<span class="error">This email allready exists.</span>');
+							$('#register-submit').prop('disabled', true);
+						}
+					}
+				});
+			}
+			else
+			{
+				Result.html('');
+			}
+			
+		});
+		
+		$('#m').keyup(function(){
+			var mobile = $(this).val();
+			var Result = $('#result2');
+			if(mobile.length > 2) 
+			{
+				Result.html('Loading...');
+				var dataPass = 'action=availability&mobile='+mobile;
+				$.ajax({
+					type : 'POST',
+					data : dataPass,
+					url  : 'functions/available.php',
+					success: function(responseText){
+						if(responseText == 0){
+							Result.html('<span class="success">You are welcome please go on.</span>');
+							$('#register-submit').prop('disabled', false);
+						}
+						else if(responseText > 0){
+							Result.html('<span class="error">This number allready exists.</span>');
+							$('#register-submit').prop('disabled', true);
+						}
+					}
+				});
+			}
+			else
+			{
+				Result.html('');
+			}
+		});
+	});
 </script>
     <style type="text/css">
         .success
