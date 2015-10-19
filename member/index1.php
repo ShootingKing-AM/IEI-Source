@@ -23,22 +23,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
     <title>IEI~Client</title>
-    <!-- Bootstrap Styles-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
         <?php include "nav.php";?>
-        <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -66,12 +60,6 @@
         </nav>
 
 <?php
-	function getUserNameByID( $UserID, $db )
-	{
-		$sql = "SELECT UserName FROM clients WHERE ID='".$UserID."'";
-		$arr = mysqli_fetch_array(mysqli_query($db, $sql), MYSQLI_ASSOC);
-		return $arr['UserName'];
-	}
 	if( $_SESSION['IsAdmin'] )
 	{
 		include 'admin951.php';

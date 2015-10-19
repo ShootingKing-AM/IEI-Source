@@ -1,4 +1,3 @@
-<!-- /. NAV SIDE  -->
         <div id="page-wrapper">
            <div id="page-inner">
 			<div class="row">
@@ -11,7 +10,6 @@
                 </div>
 			<div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              Members
@@ -33,54 +31,60 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-										<?php
-										require 'db.php';
+									<?php
+										include_once 'db.php';
 										$sql = 'SELECT * FROM clients';
 										$res = mysqli_query( $db, $sql );
 										
-										while($array = mysqli_fetch_array($res))
+										if( !is_bool($res) )
 										{
-											echo '<td>'.$array['Code'].'</td>'.
-                                            '<td>'.$array['FullName'].'</td>'.
-                                            '<td>'.$array['UserName'].'</td>'.
-                                            '<td>'.$array['Branch'].'</td>'.
-                                            '<td>'.$array['Email'].'</td>'.
-                                            '<td class="center">'.$array['Mobile'].'</td>'.
-                                            '<td class="center">'.$array['Message'].'</td>'.
-                                            '<td class="center">'.$array['IsAdmin'].'</td>'.
-                                            '<td class="center">'.$array['Amnt'].'</td>'.
-											'</tr>';}?>
+											while($array = mysqli_fetch_array($res))
+											{
+												echo '<td>'.$array['Code'].'</td>'.
+												'<td>'.$array['FullName'].'</td>'.
+												'<td>'.$array['UserName'].'</td>'.
+												'<td>'.$array['Branch'].'</td>'.
+												'<td>'.$array['Email'].'</td>'.
+												'<td class="center">'.$array['Mobile'].'</td>'.
+												'<td class="center">'.$array['Message'].'</td>'.
+												'<td class="center">'.$array['IsAdmin'].'</td>'.
+												'<td class="center">'.$array['Amnt'].'</td>'.
+												'</tr>';
+											}
+										}
+									?>
                                     </tbody>
                                 </table>
                             </div>
                             
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
                 </div>
             </div>
 
 			<?php
-						require 'db.php';
-						$sql = "SELECT COUNT(*) FROM membcodes WHERE SoldToID IS NULL AND CreatorID='".$_SESSION['userID']."'";
-						$res = mysqli_query( $db, $sql );
+					$sql = "SELECT COUNT(*) FROM membcodes WHERE SoldToID IS NULL AND CreatorID='".$_SESSION['userID']."'";
+					$res = mysqli_query( $db, $sql );
+					if( !is_bool($res) )
+					{
 						$array = mysqli_fetch_array($res);
-
 						if(intval($array[0])< 1)
-							{
-								echo'<div class="col-md-12">
-										<div class="jumbotron">
-											<div class="text-center"><h2>Generate Tickets</h2></div>
-											<p class="text-center">Press this button only if you want to sell FEST tikets. You will be responsible for any scam caused by you after generating tickets.</p>
-											<p class="text-center">
-												<a href="functions/generatecodes.php" class="btn btn-danger btn-lg" role="button">Generate Tickets</a>
-											</p>
-										</div>
-									</div>';}?>
+						{
+							echo'<div class="col-md-12">
+									<div class="jumbotron">
+										<div class="text-center"><h2>Generate Tickets</h2></div>
+										<p class="text-center">Press this button only if you want to sell FEST tikets. You will be responsible for any scam caused by you after generating tickets.</p>
+										<p class="text-center">
+											<a href="functions/generatecodes.php" class="btn btn-danger btn-lg" role="button">Generate Tickets</a>
+										</p>
+									</div>
+								</div>';
+						}
+					}
+			?>
 			
 			<div class="row">
                 <div class="col-md-12">
-                    <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
                              Tickets
@@ -95,23 +99,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-										<?php
-										require 'db.php';
+									<?php
 										$sql = "SELECT * FROM membcodes WHERE SoldToID IS NULL AND CreatorID='".$_SESSION['userID']."'";
 										$res = mysqli_query( $db, $sql );
-										
-										while($array = mysqli_fetch_array($res))
+										if( !is_bool($res) )
 										{
-											echo '<td>'.$array['Code'].'</td>'.
-                                            '<td><div class="text-center"><a href="functions/sold.php?sold='.$array['ID'].'"><button>Sold</button></a></div></td>'.
-											'</tr>';}?>
+											while($array = mysqli_fetch_array($res))
+											{
+												echo '<td>'.$array['Code'].'</td>'.
+												'<td><div class="text-center"><a href="functions/sold.php?sold='.$array['ID'].'"><button>Sold</button></a></div></td>'.
+												'</tr>';
+											}
+										}
+										else
+											echo '<td> No Tickets </td><td></td>';
+										mysqli_close($db);
+									?>
                                     </tbody>
                                 </table>
                             </div>
                             
                         </div>
                     </div>
-                    <!--End Advanced Tables -->
                 </div>
             </div>
 
@@ -165,24 +174,14 @@
 				</div>
 				</div>
             </div>
-                <!-- /. ROW  -->
 				<footer><p>© IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
-            <!-- /. PAGE INNER  -->
         </div>
-        <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
-    <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-    <!-- Morris Chart Js -->
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
-	<!-- DATA TABLE SCRIPTS -->
     <script src="assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
@@ -190,8 +189,5 @@
                 $('#dataTables-example').dataTable();
             });
     </script>
-    <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
-
-
 </body>
