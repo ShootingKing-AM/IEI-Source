@@ -18,7 +18,7 @@
 	include_once('../db.php'); 
 	$time = time();	
 	$user = $_SESSION['userName'];
-	$chat = mysqli_real_escape_string($conn, $_POST['msg']);
+	$chat = mysqli_real_escape_string($conn, $_POST['name']);
 	
 	$sql = "CREATE TABLE IF NOT EXISTS chat ( ID INT NOT NULL AUTO_INCREMENT, UserName TEXT, Chat TEXT, Doe TEXT, PRIMARY KEY (ID) )";
 	$qury = mysqli_query($conn, $sql);

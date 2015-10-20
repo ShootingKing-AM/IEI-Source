@@ -74,25 +74,56 @@ function loadNowPlaying(){
 }
 setInterval(function(){loadNowPlaying()}, 1000);
 </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/
+libs/jquery/1.3.0/jquery.min.js">
+</script>
+<script type="text/javascript" >
+$(function() {
+$(".submit").click(function() {
+var name = $("#name").val();
+var dataString = 'name='+ name;
+
+if(name=='')
+{
+$('.error').fadeOut(200).show();
+}
+else
+{
+$.ajax({
+type: "POST",
+url: "functions/chat.php",
+data: dataString,
+success: function(){
+$('#name').val('');
+}
+});
+}
+return false;
+});
+});
+</script>
+<script>
+$('#chat').change(function() {
+  $('#chat').animate({ scrollTop: $(document).height() }, 700);
+});
+</script>
 
                 <div class="col-md-12">
                     <div class="jumbotron">
                         <div class="text-center">
-							<div class="well" id="chat"></div>
+							<div class="well" id="chat" style="height: 400px !important;overflow: scroll"></div>
 						</div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-					<form data-toggle="validator" action="functions/chat.php" method="post" role="form">
-					<div class="form-group">
-					<label for="inputName" class="control-label">Type Here...</label>
-					<input type="text" class="form-control" id="inputName" name="msg" placeholder="Type Here..........." required>
-					</div>
-					<div class="form-group">
-					<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
-					</form>
+						<form name="form" method="post" role="form">
+							<div class="form-group">
+								<label for="inputName" class="control-label">Type Here...</label>
+								<input class="form-control" id="name" name="name" type="text" />
+							</div>
+							<span class="error" style="display:none"> Please Enter Something</span>
+							<div class="form-group">
+								<input type="submit" value="Submit" class="btn btn-primary submit"/>
+							</div>
+						</form>
+						</div>
                 </div>
 	</div>
 
