@@ -41,6 +41,9 @@
                         <a class="active-menu" href="index1.php"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
+                        <a href="grpchat.php"><i class="fa fa-comment"></i> Chat</a>
+                    </li>
+                    <li>
                         <a href="blog.php"><i class="fa fa-bullhorn"></i> Activity Center</a>
                     </li>
                     <li>
