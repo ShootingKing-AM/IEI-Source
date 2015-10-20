@@ -40,10 +40,10 @@
                         <a href="index1.php"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="grpchat.php"><i class="fa fa-comment"></i> Chat</a>
+                        <a class="active-menu" href="grpchat.php"><i class="fa fa-comment"></i> Chat</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="blog.php"><i class="fa fa-bullhorn"></i> Activity Center</a>
+                        <a href="blog.php"><i class="fa fa-bullhorn"></i> Activity Center</a>
                     </li>
                     <li>
                         <a href="profile.php"><i class="fa fa-desktop"></i> Profile</a>
@@ -65,66 +65,37 @@
 			 <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <div class="text-center"><h1><font class="text-danger">T</font><font class="text-warning">e</font><font class="text-info">c</font><font class="text-success">h</font> <font class="text-primary">R</font><font class="text-danger">e</font><font class="text-warning">n</font><font class="text-info">d</font><font class="text-success">e</font><font class="text-primary">z</font><font class="text-danger">v</font><font class="text-warning">o</font><font class="text-info">u</font><font class="text-success">s</font> ~ <kbd>Blog</kbd></h1></div>
-						<div class="text-center"><h3>Keep your ideas out. <i class="fa fa-smile-o"></i></h3></div>
-                        <p class="text-center">Let everyone know about your idea.</p>
+                        <div class="text-center"><h1><font class="text-danger">T</font><font class="text-warning">e</font><font class="text-info">c</font><font class="text-success">h</font> <font class="text-primary">R</font><font class="text-danger">e</font><font class="text-warning">n</font><font class="text-info">d</font><font class="text-success">e</font><font class="text-primary">z</font><font class="text-danger">v</font><font class="text-warning">o</font><font class="text-info">u</font><font class="text-success">s</font> ~ <kbd>Chat</kbd></h1></div>
                     </div>
                 </div>
-<script type="text/javascript"> 
-
-function stopRKey(evt) { 
-  var evt = (evt) ? evt : ((event) ? event : null); 
-  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
-  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
-} 
-
-document.onkeypress = stopRKey; 
-
+<script>
+function loadNowPlaying(){
+  $("#chat").load("functions/loadchat.php");
+}
+setInterval(function(){loadNowPlaying()}, 1000);
 </script>
+
                 <div class="col-md-12">
-					<form data-toggle="validator" action="functions/blogset.php" method="post" role="form">
+                    <div class="jumbotron">
+                        <div class="text-center">
+							<div class="well" id="chat"></div>
+						</div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+					<form data-toggle="validator" action="functions/chat.php" method="post" role="form">
 					<div class="form-group">
-					<label for="inputName" class="control-label">Heading</label>
-					<input type="text" class="form-control" id="inputName" name="head" placeholder="Heading" required>
-					</div>
-					<div class="form-group">
-					<label for="inputName" class="control-label">Matter</label>
-					<textarea type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required></textarea>
+					<label for="inputName" class="control-label">Type Here...</label>
+					<input type="text" class="form-control" id="inputName" name="msg" placeholder="Type Here..........." required>
 					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
 					</form>
                 </div>
-<?php
-	include_once 'db.php';
-	$sql = 'SELECT * FROM blog ORDER BY Doe desc';
-	$res = mysqli_query( $db, $sql );
-	
-	if( !is_bool($res) )
-	{
-		while($array = mysqli_fetch_array($res))
-		{
-			$time = gmdate("d-m-Y\ H:i:s\ ", $array['Doe']);
-			echo '<div class="col-md-12">'.
-					'<div class="jumbotron">'.
-						'<div class="text-center">'.
-							'<strong><h2>'.$array['Heading'].'</h2></strong>'.
-						'</div>'.
-						'<div class="col-sm-12" style="color:grey">'.
-							$array['UserName'].' <div class="label label-success">'.$time.'</div>'.
-						'</div><br/><hr>'.
-						'<p class="text-center">'.$array['Matter'].'</p>';
-			if($_SESSION['userName'] == $array['UserName'])
-			{
-				echo '<div class="col-sm-4">'.
-						'<a href="functions/delete.php?ID='.$array['ID'].'"><button type="button" class="btn btn-danger">Delete</button></a>'.
-					 '</div>';
-			}
-			echo '</div></div>';
-		}
-	}
-?> </div>
+	</div>
+
 				 <footer><p>© IEI <?php echo Date('Y');?> All right reserved. EXCLUSIVELY Design & Developed by <a href="http://ieiscgitam.in">IEI Dev Team <i class="fa fa-heart"></i></a></p></footer>
 				</div>
             </div>
