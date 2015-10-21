@@ -1,3 +1,4 @@
 
+*.local
 *error_log
 member/db.php

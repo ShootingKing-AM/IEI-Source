@@ -14,6 +14,7 @@
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
 			 <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <div class="text-center"><h1><font class="text-danger">T</font><font class="text-warning">e</font><font class="text-info">c</font><font class="text-success">h</font> <font class="text-primary">R</font><font class="text-danger">e</font><font class="text-warning">n</font><font class="text-info">d</font><font class="text-success">e</font><font class="text-primary">z</font><font class="text-danger">v</font><font class="text-warning">o</font><font class="text-info">u</font><font class="text-success">s</font> ~ <kbd>Blog</kbd></h1></div>
+                        <?php include './title.php'; ?>
 						<div class="text-center"><h3>Keep your ideas out. <i class="fa fa-smile-o"></i></h3></div>
                         <p class="text-center">Let everyone know about your idea.</p>
                     </div>

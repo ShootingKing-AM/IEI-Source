@@ -3,7 +3,7 @@
 			<div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <div class="text-center"><h1><font class="text-danger">T</font><font class="text-warning">e</font><font class="text-info">c</font><font class="text-success">h</font> <font class="text-primary">R</font><font class="text-danger">e</font><font class="text-warning">n</font><font class="text-info">d</font><font class="text-success">e</font><font class="text-primary">z</font><font class="text-danger">v</font><font class="text-warning">o</font><font class="text-info">u</font><font class="text-success">s</font> ~ <kbd><?php echo Date('Y');?></kbd></h1></div>
+                        <?php include './title.php'; ?>
 						<div class="text-center"><h3>Welcomes you</h3></div>
                         <p class="text-center">Its time to bring your thoughts out. We are here with a new platform to idealize your thoughts.</p>
                     </div>
