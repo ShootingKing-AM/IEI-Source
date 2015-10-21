@@ -1,5 +1,5 @@
-<?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start();
-
+<?php 
+	include_once './sessionvalidator.php';
 	include_once('../db.php'); 
 
 	$code = mysqli_real_escape_string($conn, $_POST['code']);
