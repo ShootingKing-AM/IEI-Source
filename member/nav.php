@@ -37,7 +37,7 @@
                     <?php					
 						if( $num > 0 )
 						{
-							while($array = mysqli_fetch_array($res))
+							do
 							{
 								echo '<li>'.
 										'<a href="#">'.
@@ -45,6 +45,7 @@
 										'</a>'.
 									 '</li><li class="divider"></li>';
 							}
+							while($array = mysqli_fetch_array($res));
 						}
 						else
 						{
