@@ -1,3 +1,10 @@
+<?php
+	if( !isset($_SESSION['IncludeAdmin']) )
+	{
+		header('Location: index.php');exit;
+	}
+	unset($_SESSION['IncludeAdmin']);
+?>
         <div id="page-wrapper">
            <div id="page-inner">
 			<div class="row">

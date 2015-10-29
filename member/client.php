@@ -1,3 +1,10 @@
+<?php
+	if( !isset($_SESSION['IncludeClient']) )
+	{
+		header('Location: index.php');exit;
+	}
+	unset($_SESSION['IncludeClient']);
+?>
         <div id="page-wrapper">
            <div id="page-inner">
 			<div class="row">

@@ -6,10 +6,12 @@
 	
 	if( $_SESSION['IsAdmin'] )
 	{
+		$_SESSION['IncludeAdmin'] = true;
 		include 'admin951.php';
 	}
 	else
 	{
+		$_SESSION['IncludeClient'] = true;
 		include 'client.php';
 	}
 	include './footer.php';
