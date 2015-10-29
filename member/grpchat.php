@@ -3,14 +3,14 @@
 	$_SESSION['LoadedChat'] = 0;
 	
 	$_SESSION['PageTitle'] = 'Group Chat';
-	include_once './header.php';
+	include_once './includes/header.php';
 ?>	
 		<div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <?php include './title.php'; ?>
+                        <?php include './includes/title.php'; ?>
                     </div>
                 </div>
 <script>
@@ -89,4 +89,4 @@
 						</div>
                 </div>
 		</div>
-		<?php include './footer.php'; ?>
+		<?php include './includes/footer.php'; ?>

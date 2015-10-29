@@ -2,14 +2,14 @@
 	include_once 'functions/sessionvalidator.php';	
 	
 	$_SESSION['PageTitle'] = 'Activity Center';
-	include_once './header.php';
+	include_once './includes/header.php';
 ?>
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <?php include './title.php'; ?>
+                        <?php include './includes/title.php'; ?>
 						<div class="text-center"><h3>Keep your ideas out. <i class="fa fa-smile-o"></i></h3></div>
                         <p class="text-center">Let everyone know about your idea.</p>
                     </div>
@@ -33,7 +33,7 @@ document.onkeypress = stopRKey;
 					</div>
 					<div class="form-group">
 					<label for="inputName" class="control-label">Matter</label>
-					<textarea type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required></textarea><?php include "liveurl.php";?>
+					<textarea type="text" class="form-control" id="inputName" name="mat" placeholder="Details" required></textarea><?php include "includes/liveurl.php";?>
 					</div>
 					<div class="form-group">
 					<button type="submit" class="btn btn-primary">Submit</button>
@@ -69,4 +69,4 @@ document.onkeypress = stopRKey;
 		}
 	}
 ?> </div>
-	<?php include './footer.php'; ?>
+	<?php include './includes/footer.php'; ?>

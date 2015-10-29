@@ -1,16 +1,9 @@
-<?php
-	if( !isset($_SESSION['IncludeAdmin']) )
-	{
-		header('Location: index.php');exit;
-	}
-	unset($_SESSION['IncludeAdmin']);
-?>
         <div id="page-wrapper">
            <div id="page-inner">
 			<div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">					
-                        <?php include './title.php'; ?>
+                        <?php include './includes/title.php'; ?>
 						<div class="text-center"><h3>Be Alert!!!!!!!!!!!</h3></div>
                         <p class="text-center">This is the ADMIN PANNEL you will be blamed for any mistake commited by you.Please read the given instructions before you do anything.</p>
                     </div>

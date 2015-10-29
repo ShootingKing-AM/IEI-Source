@@ -2,16 +2,14 @@
 	include_once 'functions/sessionvalidator.php';
 	
 	$_SESSION['PageTitle'] = 'Dashboard';
-	include_once './header.php';
+	include_once './includes/header.php';
 	
 	if( $_SESSION['IsAdmin'] )
 	{
-		$_SESSION['IncludeAdmin'] = true;
-		include 'admin951.php';
+		include 'includes/admin951.php';
 	}
 	else
 	{
-		$_SESSION['IncludeClient'] = true;
-		include 'client.php';
+		include 'includes/client.php';
 	}
-	include './footer.php';
+	include './includes/footer.php';

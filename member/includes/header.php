@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <?php include "nav.php";?>
+        <?php include "includes/nav.php";?>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">

@@ -2,7 +2,7 @@
 	include_once 'functions/sessionvalidator.php';
 	
 	$_SESSION['PageTitle'] = 'ID';
-	include_once './header.php';
+	include_once './includes/header.php';
 ?>
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -14,4 +14,4 @@
 						<iframe src="id/index.php" style="width: 100%;height: 850px;border-style: solid;border-width: 5px;"></iframe>	
                     </div>
                 </div> 
-			<?php include './footer.php'; ?>
+			<?php include './includes/footer.php'; ?>

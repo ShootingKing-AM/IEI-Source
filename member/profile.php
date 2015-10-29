@@ -2,7 +2,7 @@
 	include_once 'functions/sessionvalidator.php';
 
 	$_SESSION['PageTitle'] = 'Profile';
-	include_once './header.php';
+	include_once './includes/header.php';
 ?>
         <div id="page-wrapper" >
             <div id="page-inner">
@@ -65,4 +65,4 @@
 					</form>
 				</div>
                 </div>
-			<?php include './footer.php'; ?>
+			<?php include './includes/footer.php'; ?>

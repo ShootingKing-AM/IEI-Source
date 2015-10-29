@@ -1,16 +1,9 @@
-<?php
-	if( !isset($_SESSION['IncludeClient']) )
-	{
-		header('Location: index.php');exit;
-	}
-	unset($_SESSION['IncludeClient']);
-?>
         <div id="page-wrapper">
            <div id="page-inner">
 			<div class="row">
                 <div class="col-md-12">
                     <div class="jumbotron">
-                        <?php include './title.php'; ?>
+                        <?php include './includes/title.php'; ?>
 						<div class="text-center"><h3>Welcomes you</h3></div>
                         <p class="text-center">Its time to bring your thoughts out. We are here with a new platform to idealize your thoughts.</p>
                     </div>
