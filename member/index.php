@@ -451,7 +451,7 @@
 			</div>
 		</div>
 	</div>
-	<?php include 'footer.php'; ?>
+	<?php include 'includes/footer.php'; ?>
 </body>
 </html>
 <?php } else { echo header('Location: index1.php');}
