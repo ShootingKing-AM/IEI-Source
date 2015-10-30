@@ -37,9 +37,10 @@
 	{
 		color: green;
 	}
-	.error
+	.error1
 	{
 		color: red;
+		float:right;
 	}
 	.content
 	{
@@ -53,11 +54,10 @@
 		padding:10px;
 		font-size:14px;
 	}
-</style>
-<style>
+	
 	html
 	{
-		/* height:100%; */
+		height:100%;
 	}
 	body
 	{
@@ -195,6 +195,36 @@
 		-webkit-transform: translate3d(0, 0.5em, 0);
 		transform: translate3d(0, 0.5em, 0);
 	}
+		
+	.row
+	{
+		text-align:center;
+	}
+	.active
+	{
+		font-weight:bold;
+		float:left;
+		color:#000;
+	}
+	
+	.inactive
+	{
+		font-weight:300;
+		float:right;
+		color:grey;
+	}
+	
+	.links
+	{
+		transition: all 1s;
+		cursor: pointer;		
+		
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 </style>
 <script>
 	$(function(){
@@ -224,10 +254,7 @@
 				}
 			});
 		});
-	});
-</script>
-<script type="text/javascript">
-	$(document).ready(function(){
+		
 		$('#input-1').keyup(function(){
 			var username = $(this).val();
 			var Result = $('#result');
@@ -242,11 +269,12 @@
 					url  : 'functions/available.php',
 					success: function(responseText){
 						if(responseText == 0){
-							Result.html('<span class="success">Available</span>');
+							$('#uerror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
 						else if(responseText > 0){
-							Result.html('<span class="error">This username is already taken.</span>');
+							$('#uerror').text("Already taken.");
+							$('#uerror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -271,11 +299,12 @@
 					url  : 'functions/available.php',
 					success: function(responseText){
 						if(responseText == 0){
-							Result.html('<span class="success">You are welcome please go on.</span>');
+							$('#eerror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
 						else if(responseText > 0){
-							Result.html('<span class="error">This email allready exists.</span>');
+							$('#eerror').text("Already exits.");
+							$('#eerror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -300,12 +329,13 @@
 					data : dataPass,
 					url  : 'functions/available.php',
 					success: function(responseText){
-						if(responseText == 0){
-							Result.html('<span class="success">You are welcome please go on.</span>');
+						if(responseText == 0){							
+							$('#merror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
-						else if(responseText > 0){
-							Result.html('<span class="error">This number allready exists.</span>');
+						else if(responseText > 0){					
+							$('#merror').text("Already exists.");
+							$('#merror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -316,70 +346,102 @@
 				Result.html('');
 			}
 		});
+		
+		$('.signupblock').hide();
+		$('.signuplink').addClass('inactive');
+		$('.signinlink').addClass('active');
+		
+		$('.signinlink').click( function() {
+			$('.signinblock').show(1000);
+			$('.signupblock').hide(1000);
+			
+			$('.links').removeClass('inactive');
+			$('.links').removeClass('active');
+			
+			$('.signinlink').addClass('active');
+			$('.signuplink').addClass('inactive');
+		});
+		
+		$('.signuplink').click( function() {
+			$('.signinblock').hide(1000);
+			$('.signupblock').show(1000);
+			
+			$('.links').removeClass('inactive');
+			$('.links').removeClass('active');
+			
+			$('.signuplink').addClass('active');
+			$('.signinlink').addClass('inactive');
+		});
+		
 	});
 </script>
 
 	<div class="container jumbotron" style="background:transparent;max-width:100%;">
+		<div class="row" style="margin: 0 auto;max-width:33.33%">
+			<h2><font class="signinlink links">Login</font> | <font class="signuplink links">SignUp</font></h2>
+		</div>
 		<div class="row">
-		  <div class="col-sm-4">
-			<h2>SignUp</h2>
-			<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
-			<span class="input input">
-				<input class="input__field input__field input--filled" type="text" name="n" id="input-1" autocomplete="off" />
-				<label class="input__label input__label" for="input-1" >
-					<span class="input__label-content input__label-content">Username</span><div class="content"><div class="result" id="result"></div></div>
-				</label>
-			</span><br/>
-			<span class="input input">
-				<input class="input__field input__field" type="text" name="fn" id="input-2" autocomplete="off" />
-				<label class="input__label input__label" for="input-2">
-					<span class="input__label-content input__label-content">Full Name</span>
-				</label>
-			</span><br/>
-			<span class="input input">
-				<input class="input__field input__field" type="text" name="em" id="input-3" autocomplete="off" />
-				<label class="input__label input__label" for="input-3">
-					<span class="input__label-content input__label-content">Email</span><div class="content"><div class="result" id="result1"></div></div>
-				</label>
-			</span><br/>
-			<span class="input input">
-				<input class="input__field input__field" type="text" name="m" id="input-4" autocomplete="off" />
-				<label class="input__label input__label" for="input-4">
-					<span class="input__label-content input__label-content">Mobile</span><div class="content"><div class="result" id="result2"></div></div>
-				</label>
-			</span><br/>
-			<span class="input input">
-				<input class="input__field input__field" type="text" name="pass" id="input-5" autocomplete="off" />
-				<label class="input__label input__label" for="input-5">
-					<span class="input__label-content input__label-content">Password</span>
-				</label>
-			</span><br/>
-			<span class="input input">
-				<input class="input__field input__field" type="text" name="confirm-pass" id="input-6" autocomplete="off" />
-				<label class="input__label input__label" for="input-6">
-					<span class="input__label-content input__label-content">Conform Password</span>
-				</label>
-			</span><br/>
-				<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>
-				<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>
-				<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>
-				<div class="form-group"><div class="alert-box error" id="merror" style="width:75%"></div></div>
-			<span class="input input">
-				<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
-			</span><br/></div>
-			  <div class="col-sm-4">
-				<h2>Login</h2>
+			<div class="col-sm-12 signupblock">
+				<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
+				<div class="row">
+					<div class="col-sm-6">				
+						<span class="input input">
+							<input class="input__field input__field input--filled" type="text" name="n" id="input-1" autocomplete="off" />
+							<label class="input__label input__label" for="input-1" >
+								<span class="input__label-content input__label-content">Username<font id="uerror" class="error1"></font></span>	
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="fn" id="input-2" autocomplete="off" />
+							<label class="input__label input__label" for="input-2">
+								<span class="input__label-content input__label-content">Full Name</span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="em" id="input-3" autocomplete="off" />
+							<label class="input__label input__label" for="input-3">
+								<span class="input__label-content input__label-content">Email<font id="eerror" class="error1"></font></span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="m" id="input-4" autocomplete="off" />
+							<label class="input__label input__label" for="input-4">
+								<span class="input__label-content input__label-content">Mobile<font id="merror" class="error1"></font></span>
+							</label>
+						</span><br/>
+					</div>
+					<div class="col-sm-6">					
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="pass" id="input-5" autocomplete="off" />
+							<label class="input__label input__label" for="input-5">
+								<span class="input__label-content input__label-content">Password<font id="perror" class="error1"></font></span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="confirm-pass" id="input-6" autocomplete="off" />
+							<label class="input__label input__label" for="input-6">
+								<span class="input__label-content input__label-content">Confirm Password</span>
+							</label>
+						</span><br/>
+					</div>
+					<span class="input input">
+							<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+					</span><br/>
+				</div>
+				</form>
+			</div>
+			<div class="col-sm-12 signinblock" style="text-align:center;float:none">
 				<form id="signin" name="signin" action="functions/signin.php"  onsubmit="return validateForm1();" method="post" role="form" autocomplete="off">
 					<span class="input input">
 						<input class="input__field input__field input--filled" type="text" id="input-7" name="name"  autocomplete="off" />
 						<label class="input__label input__label" for="input-7" >
-							<span class="input__label-content input__label-content">Username</span>
+							<span class="input__label-content input__label-content">Username<font id="luerror" class="error1"></font></span>
 						</label>
 					</span><br/>
 					<span class="input input">
 						<input class="input__field input__field" type="Password" id="input-8" name="pwd"  autocomplete="off" />
 						<label class="input__label input__label" for="input-8">
-							<span class="input__label-content input__label-content">Password</span>
+							<span class="input__label-content input__label-content">Password<font id="lperror" class="error1"></font></span>
 						</label>
 					</span><br/>
 					<span class="input input">
@@ -389,7 +451,7 @@
 			</div>
 		</div>
 	</div>
-
+	<?php include 'footer.php'; ?>
 </body>
 </html>
 <?php } else { echo header('Location: index1.php');}
