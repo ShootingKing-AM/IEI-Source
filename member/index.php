@@ -1,26 +1,26 @@
 <?php
 	session_start();
 	if(!isset($_SESSION['userName'])) { ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>IEI ~ Login</title>
 	<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon.ico">
-    <title>IEI~Client</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
 	<link rel="stylesheet" href="assets/css/box.css">
-	<link rel="stylesheet" media="screen" href="assets/css/font-awesome.css" />
+	<link href="assets/css/animate.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<link href="assets/css/animate.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,500' rel='stylesheet' type='text/css'>
+	<script src="assets/js/validatesignin.js" type="text/javascript"></script>
+	<script src="assets/js/validatesignup.js" type="text/javascript"></script>
 </head>
-<body style="background: Url(assets/img/gear.gif);color: #fff;max-width: 100%;height: 100%;">
-<style>
-	body 
-	{
-		padding-top: 90px;
-	}
 
+<body>
+<style>
 	ul.dropdown-lr {
 	  width: 300px;
 	}
@@ -37,9 +37,10 @@
 	{
 		color: green;
 	}
-	.error
+	.error1
 	{
 		color: red;
+		float:right;
 	}
 	.content
 	{
@@ -53,34 +54,208 @@
 		padding:10px;
 		font-size:14px;
 	}
-</style>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    	<div class="container-fluid">
-			<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			</button>
-				<a class="navbar-brand" href="../index.php">I.E.I</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="../index.php">Home</a></li>
-					<li><a href="../index.php#about">About</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu">
-                            <div class="col-lg-12">
-								<script src="assets/js/validatesignup.js" type="text/javascript"></script>
-                                <div class="text-center"><h3><b>Register</b></h3></div>
+	
+	html
+	{
+		height:100%;
+	}
+	body
+	{
+	    width: 100%;
+		background-image: linear-gradient(white 60%, rgba(255, 255, 255, 0.6));
+		height: 100%;
+		transition: all 1s;
+		font-family: 'Raleway', sans-serif;
+		font-weight:400;
+	}
+	.input {
+		position: relative;
+		z-index: 1;
+		display: inline-block;
+		margin: 1em;
+		max-width: 350px;
+		width: calc(100% - 2em);
+		vertical-align: top;
+	}
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#n').keyup(function(){
+	.input__field {
+		position: relative;
+		display: block;
+		float: right;
+		padding: 0.8em;
+		width: 60%;
+		border: none;
+		border-radius: 0;
+		background: #f0f0f0;
+		color: #aaa;
+		font-weight: bold;
+		-webkit-appearance: none; /* for box shadows to show on iOS */
+	}
+
+	.input__field:focus {
+		outline: none;
+	}
+
+	.input__label {
+		display: inline-block;
+		float: right;
+		padding: 0 1em;
+		width: 40%;
+		color: #000000;
+		font-weight: bold;
+		font-size: 80.25%;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.input__label-content {
+		position: relative;
+		display: block;
+		padding: 1.6em 0;
+		width: 100%;
+	}
+
+	.graphic {
+		position: absolute;
+		top: 0;
+		left: 0;
+		fill: none;
+	}
+
+	.icon {
+		color: #ddd;
+		font-size: 150%;
+	}
+
+	.input {
+		margin: 3em 1em 1em;
+	}
+
+	.input__field {
+		padding: 0.4em 0.25em;
+		width: 100%;
+		background: transparent;
+		color: #000000;
+		font-size: 1.55em;
+	}
+
+	.input__label {
+		position: absolute;
+		width: 100%;
+		text-align: left;
+		pointer-events: none;
+	}
+
+	.input__label-content {
+		-webkit-transition: -webkit-transform 0.3s;
+		transition: transform 0.3s;
+	}
+
+	.input__label::before,
+	.input__label::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 4px;
+		background: #91A2B5;
+		-webkit-transition: -webkit-transform 0.3s;
+		transition: transform 0.3s;
+	}
+
+	.input__label::before {
+		top: 0;
+	}
+
+	.input__label::after {
+		bottom: 0;
+	}
+
+	.input__field:focus + .input__label .input__label-content,
+	.input--filled .input__label-content {
+		-webkit-transform: translate3d(0, -90%, 0);
+		transform: translate3d(0, -90%, 0);
+	}
+
+	.input__field:focus + .input__label::before,
+	.input--filled .input__label::before {
+		-webkit-transform: translate3d(0, -0.5em, 0);
+		transform: translate3d(0, -0.5em, 0);
+	}
+
+	.input__field:focus + .input__label::after,
+	.input--filled .input__label::after {
+		-webkit-transform: translate3d(0, 0.5em, 0);
+		transform: translate3d(0, 0.5em, 0);
+	}
+		
+	.row
+	{
+		text-align:center;
+	}
+	.active
+	{
+		font-weight:bold;
+		float:left;
+		color:#000;
+	}
+	
+	.inactive
+	{
+		font-weight:300;
+		float:right;
+		color:grey;
+	}
+	
+	.links
+	{
+		transition: all 1s;
+		cursor: pointer;		
+		
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+</style>
+<script>
+	$(function(){
+		
+		function changeBg()
+		{
+			$('body').css('background-color', 'rgb('+Math.floor((Math.random() * 255))+','+Math.floor((Math.random() * 255))+','+Math.floor((Math.random() * 255))+')');
+			$('body').css('background-image', 'linear-gradient(white '+Math.floor(Math.random()*(80-40+1)+40)+'%, rgba(255, 255, 255, 0.6))');
+		}
+		setInterval( function() { changeBg() }, 3000 );
+		
+		$('input').change(function(){
+			var valu = $(this).val();
+			var labelname = $(this).attr('id');
+			
+			$('label').each(function(){
+				if( $(this).attr('for') == labelname )
+				{
+					if( valu.length > 1 )
+					{
+						$(this).addClass( 'input--filled' );
+					}
+					else
+					{
+						$(this).removeClass( 'input--filled' );
+					}						
+				}
+			});
+		});
+		
+		$('#input-1').keyup(function(){
 			var username = $(this).val();
 			var Result = $('#result');
 			if(username.length > 2) 
@@ -94,11 +269,12 @@
 					url  : 'functions/available.php',
 					success: function(responseText){
 						if(responseText == 0){
-							Result.html('<span class="success">Available</span>');
+							$('#uerror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
 						else if(responseText > 0){
-							Result.html('<span class="error">This username is already taken.</span>');
+							$('#uerror').text("Already taken.");
+							$('#uerror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -110,7 +286,7 @@
 			}
 		});
 		
-		$('#em').keyup(function(){
+		$('#input-3').keyup(function(){
 			var email = $(this).val();
 			var Result = $('#result1');
 			if(email.length > 2) 
@@ -123,11 +299,12 @@
 					url  : 'functions/available.php',
 					success: function(responseText){
 						if(responseText == 0){
-							Result.html('<span class="success">You are welcome please go on.</span>');
+							$('#eerror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
 						else if(responseText > 0){
-							Result.html('<span class="error">This email allready exists.</span>');
+							$('#eerror').text("Already exits.");
+							$('#eerror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -140,7 +317,7 @@
 			
 		});
 		
-		$('#m').keyup(function(){
+		$('#input-4').keyup(function(){
 			var mobile = $(this).val();
 			var Result = $('#result2');
 			if(mobile.length > 2) 
@@ -152,12 +329,13 @@
 					data : dataPass,
 					url  : 'functions/available.php',
 					success: function(responseText){
-						if(responseText == 0){
-							Result.html('<span class="success">You are welcome please go on.</span>');
+						if(responseText == 0){							
+							$('#merror').text("");
 							$('#register-submit').prop('disabled', false);
 						}
-						else if(responseText > 0){
-							Result.html('<span class="error">This number allready exists.</span>');
+						else if(responseText > 0){					
+							$('#merror').text("Already exists.");
+							$('#merror').fadeIn(500);
 							$('#register-submit').prop('disabled', true);
 						}
 					}
@@ -168,100 +346,112 @@
 				Result.html('');
 			}
 		});
+		
+		$('.signupblock').hide();
+		$('.signuplink').addClass('inactive');
+		$('.signinlink').addClass('active');
+		
+		$('.signinlink').click( function() {
+			$('.signinblock').show(1000);
+			$('.signupblock').hide(1000);
+			
+			$('.links').removeClass('inactive');
+			$('.links').removeClass('active');
+			
+			$('.signinlink').addClass('active');
+			$('.signuplink').addClass('inactive');
+		});
+		
+		$('.signuplink').click( function() {
+			$('.signinblock').hide(1000);
+			$('.signupblock').show(1000);
+			
+			$('.links').removeClass('inactive');
+			$('.links').removeClass('active');
+			
+			$('.signuplink').addClass('active');
+			$('.signinlink').addClass('inactive');
+		});
+		
 	});
 </script>
-								<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
-									<div class="form-group">
-										<input type="text" name="n" id="n" tabindex="1" class="form-control" placeholder="Username" value=""><div class="content"><div class="result" id="result"></div></div>
-									</div>
-									<div class="form-group">
-										<input type="text" name="fn" id="fn" tabindex="1" class="form-control" placeholder="Full Name" value="">
-									</div>
-									<div class="form-group">
-										<input type="email" name="em" id="em" tabindex="1" class="form-control" placeholder="Email Address" value=""><div class="content"><div class="result" id="result1"></div></div>
-									</div>
-									<div class="form-group">
-										<input type="number" name="m" id="m" tabindex="1" class="form-control" placeholder="Mobile" value=""><div class="content"><div class="result" id="result2"></div></div>
-									</div>
-									<div class="form-group">
-										<input type="password" name="pass" id="pass" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<input type="password" name="confirm-pass" id="confirm-pass" tabindex="2" class="form-control" placeholder="Confirm Password">
-									</div>
-									<div class="form-group"><div class="alert-box error" id="uerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box error" id="eerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box error" id="perror" style="width:75%"></div></div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-xs-6 col-xs-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
-											</div>
-										</div>
-									</div>
-                                    <input type="hidden" class="hide" name="token" id="token" value="7c6f19960d63f53fcd05c3e0cbc434c0">
-								</form>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
-                            <div class="col-lg-12">
-							<script src="assets/js/validatesignin.js" type="text/javascript"></script>
-                                <div class="text-center"><h3><b>Log In</b></h3></div>
-                                <form id="signin" name="signin" action="functions/signin.php"  onsubmit="return validateForm1();" method="post" role="form" autocomplete="off">
-                                    <div class="form-group">
-                                        <label for="username">Username</label>
-                                        <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Username" value="" autocomplete="off">
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" name="pwd" id="pwd" tabindex="2" class="form-control" placeholder="Password" autocomplete="off">
-                                    </div>
-                                    <div class="form-group"><div class="alert-box errorl" id="luerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box errorl" id="lperror" style="width:75%"></div></div>
-
-                                    <div class="form-group">
-                                        <div class="row">
-                                    <div class="form-group"><div class="alert-box error" id="luerror" style="width:75%"></div></div>
-									<div class="form-group"><div class="alert-box error" id="lperror" style="width:75%"></div></div>
-                                            <div class="col-xs-5 pull-right">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="forgot.php" tabindex="5" class="forgot-password">Forgot Password?</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
+	<div class="container jumbotron" style="background:transparent;max-width:100%;">
+		<div class="row" style="margin: 0 auto;max-width:33.33%">
+			<h2><font class="signinlink links">Login</font> | <font class="signuplink links">SignUp</font></h2>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 signupblock">
+				<form id="signup" name="signup" action="functions/signup.php"  onsubmit="return validateForm();" method="post" role="form" autocomplete="off">
+				<div class="row">
+					<div class="col-sm-6">				
+						<span class="input input">
+							<input class="input__field input__field input--filled" type="text" name="n" id="input-1" autocomplete="off" />
+							<label class="input__label input__label" for="input-1" >
+								<span class="input__label-content input__label-content">Username<font id="uerror" class="error1"></font></span>	
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="fn" id="input-2" autocomplete="off" />
+							<label class="input__label input__label" for="input-2">
+								<span class="input__label-content input__label-content">Full Name</span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="em" id="input-3" autocomplete="off" />
+							<label class="input__label input__label" for="input-3">
+								<span class="input__label-content input__label-content">Email<font id="eerror" class="error1"></font></span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="m" id="input-4" autocomplete="off" />
+							<label class="input__label input__label" for="input-4">
+								<span class="input__label-content input__label-content">Mobile<font id="merror" class="error1"></font></span>
+							</label>
+						</span><br/>
+					</div>
+					<div class="col-sm-6">					
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="pass" id="input-5" autocomplete="off" />
+							<label class="input__label input__label" for="input-5">
+								<span class="input__label-content input__label-content">Password<font id="perror" class="error1"></font></span>
+							</label>
+						</span><br/>
+						<span class="input input">
+							<input class="input__field input__field" type="text" name="confirm-pass" id="input-6" autocomplete="off" />
+							<label class="input__label input__label" for="input-6">
+								<span class="input__label-content input__label-content">Confirm Password</span>
+							</label>
+						</span><br/>
+					</div>
+					<span class="input input">
+							<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-info" value="Register Now">
+					</span><br/>
+				</div>
+				</form>
+			</div>
+			<div class="col-sm-12 signinblock" style="text-align:center;float:none">
+				<form id="signin" name="signin" action="functions/signin.php"  onsubmit="return validateForm1();" method="post" role="form" autocomplete="off">
+					<span class="input input">
+						<input class="input__field input__field input--filled" type="text" id="input-7" name="name"  autocomplete="off" />
+						<label class="input__label input__label" for="input-7" >
+							<span class="input__label-content input__label-content">Username<font id="luerror" class="error1"></font></span>
+						</label>
+					</span><br/>
+					<span class="input input">
+						<input class="input__field input__field" type="Password" id="input-8" name="pwd"  autocomplete="off" />
+						<label class="input__label input__label" for="input-8">
+							<span class="input__label-content input__label-content">Password<font id="lperror" class="error1"></font></span>
+						</label>
+					</span><br/>
+					<span class="input input">
+						<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Log In">
+					</span>
+				</form>
 			</div>
 		</div>
-	</nav>
-    
-<div class="container text-center">
-    <div class="jumbotron" style="color: black;">
-       <h1>Please Login/Signup to get your details on <strong>I.E.I</strong></h1>
-    </div>
-</div>
-
-<div class="container text-center">
-    <div class="row">
-       <p>&copy; IEI <?php echo Date('Y');?> All right reserved. Design & Developed by <a href="http://ieiscgitam.in">Rohith Vegesna ~ IEI Dev Team <i class="fa fa-heart"></i></a></p>
-    </div>
-</div>
+	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>
 <?php } else { echo header('Location: index1.php');}
